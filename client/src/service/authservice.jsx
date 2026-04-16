@@ -7,3 +7,9 @@ export const loginApi = async (data) => {
     const res = await axios.post(`${Api}/auth/login`, data)
     return res.data
 }
+
+
+export const usersApi = async (data) => {
+    const res = await axios.get(`${Api}/users/allusers`)
+    return res.data
+}
