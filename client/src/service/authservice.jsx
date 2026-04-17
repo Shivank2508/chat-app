@@ -9,7 +9,7 @@ export const loginApi = async (data) => {
 }
 
 
-export const usersApi = async (data) => {
+export const usersApi = async () => {
     const res = await axios.get(`${Api}/users/allusers`)
     return res.data
 }
