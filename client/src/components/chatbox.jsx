@@ -5,7 +5,6 @@ import { prevChat } from "../service/chatservice";
 
 function ChatBox({ receiver }) {
     const { authData } = useContext(AuthContext);
-
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const socket = getSocket();
@@ -22,7 +21,9 @@ function ChatBox({ receiver }) {
     }
     // ✅ join + receive message
     useEffect(() => {
-        fecthPreviouschat()
+        if (userId && receiverId) {
+            fecthPreviouschat()
+        }
         if (!socket || !userId) return;
         socket.emit("join", userId);
         socket.on("receive_message", (msg) => {
